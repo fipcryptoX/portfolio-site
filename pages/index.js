@@ -8,7 +8,7 @@ import styles from "../pages/index.module.css";
 import OnboardingCard from "../components/onboardingCard";
 import { motion, AnimatePresence } from "framer-motion";
 import Script from "next/script";
-import { FolderKanban, Code2 } from "lucide-react";
+import { FolderKanban, Code2, UserRound, Newspaper, PenLine } from "lucide-react";
 import {
   getCheckbox,
   getDatabaseId,
@@ -132,14 +132,32 @@ export default function Home({ updatesList, writingList, projectsList, vibeList 
         <div className={styles.homeColumn}>
           <h1 className={styles.homeGreetingTitle}>Hey, I&apos;m Gideon</h1>
           <span className={styles.tinyText}>
-            I&apos;m a crypto-native Content Strategist with 4+ years in Web3. Here are
-            some tips on how to navigate this website:
+            I&apos;m a crypto-native Content Strategist with 4+ years in Web3.
             {!isVisible ? (
               <span onClick={resetOnboarding} className={styles.reset}>
                 Need a refresher? Reset onboarding.
               </span>
             ) : null}
           </span>
+          <p className={styles.mobileBio}>
+            I&apos;m a crypto-native Content Strategist with 4+ years in Web3.
+          </p>
+          <div className={styles.mobileQuickLinks}>
+            <Link href="/about">
+              <a className={styles.mobileQuickLink}>
+                <UserRound size={14} strokeWidth={2} aria-hidden="true" />
+                <span>About</span>
+              </a>
+            </Link>
+            <a href="#updatesSection" className={styles.mobileQuickLink}>
+              <Newspaper size={14} strokeWidth={2} aria-hidden="true" />
+              <span>Updates</span>
+            </a>
+            <a href="#writingSection" className={styles.mobileQuickLink}>
+              <PenLine size={14} strokeWidth={2} aria-hidden="true" />
+              <span>Writing</span>
+            </a>
+          </div>
           <AnimatePresence mode={"sync"}>
             {isVisible && (
               <motion.div
@@ -178,8 +196,13 @@ export default function Home({ updatesList, writingList, projectsList, vibeList 
               </motion.div>
             )}
           </AnimatePresence>
-          <div className={styles.homeSectionContainer}>
-            <h2 className={styles.homeSectionTitle}>Updates</h2>
+          <div className={styles.homeSectionContainer} id="updatesSection">
+            <h2 className={styles.homeSectionTitle}>
+              <span className={styles.mobileSectionTitleWithIcon}>
+                <Newspaper size={18} strokeWidth={2} aria-hidden="true" />
+                Updates
+              </span>
+            </h2>
             <Link href="/about#about-update">
               <a className={styles.homeLinkButton}>View All</a>
             </Link>
@@ -197,8 +220,13 @@ export default function Home({ updatesList, writingList, projectsList, vibeList 
               />
             ))}
           </ul>
-          <div className={styles.homeSectionContainer}>
-            <h2 className={styles.homeSectionTitle}>Writing</h2>
+          <div className={styles.homeSectionContainer} id="writingSection">
+            <h2 className={styles.homeSectionTitle}>
+              <span className={styles.mobileSectionTitleWithIcon}>
+                <PenLine size={18} strokeWidth={2} aria-hidden="true" />
+                Writing
+              </span>
+            </h2>
             <Link href="/writing">
               <a className={styles.homeLinkButton}>View All</a>
             </Link>
