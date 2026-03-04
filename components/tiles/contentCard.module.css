@@ -13,11 +13,59 @@
   transform: translateY(-1px);
 }
 
+.imageWrap {
+  position: relative;
+  width: 100%;
+  height: 170px;
+  background: var(--gray4);
+  overflow: hidden;
+}
+
 .image {
   width: 100%;
   height: 170px;
   object-fit: cover;
   background: var(--gray4);
+  opacity: 1;
+  transition: opacity 0.25s ease;
+}
+
+.imageLoaded {
+  opacity: 1;
+}
+
+.skeleton {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0.02) 0%,
+    rgba(255, 255, 255, 0.08) 50%,
+    rgba(255, 255, 255, 0.02) 100%
+  );
+  background-size: 200% 100%;
+  animation:
+    contentCardShimmer 1.2s ease-in-out infinite,
+    contentCardSkeletonOut 2.8s ease forwards;
+}
+
+@keyframes contentCardShimmer {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
+}
+
+@keyframes contentCardSkeletonOut {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    visibility: hidden;
+  }
 }
 
 .stack {

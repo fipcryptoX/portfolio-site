@@ -1,10 +1,40 @@
 import styles from "./projectTile.module.css";
 import util from "../../styles/util.module.css";
 import Link from "next/link";
+import { useEffect, useRef, useState } from "react";
 
 export default function ProjectTile({ imageUrl, title, content, type, date, href, internal = true }) {
+  const [isLoaded, setIsLoaded] = useState(!imageUrl);
+  const imgRef = useRef(null);
+
+  useEffect(() => {
+    setIsLoaded(!imageUrl);
+  }, [imageUrl]);
+
+  useEffect(() => {
+    if (!imageUrl) return;
+    if (imgRef.current?.complete) {
+      setIsLoaded(true);
+      return;
+    }
+    const timeoutId = setTimeout(() => setIsLoaded(true), 6000);
+    return () => clearTimeout(timeoutId);
+  }, [imageUrl]);
+
   const image = imageUrl ? (
-    <img src={imageUrl} alt={title} className={styles.image} />
+    <div className={styles.imageWrap}>
+      <img
+        ref={imgRef}
+        src={imageUrl}
+        alt={title}
+        className={`${styles.image} ${isLoaded ? styles.imageLoaded : ""}`}
+        loading="lazy"
+        decoding="async"
+        onLoad={() => setIsLoaded(true)}
+        onError={() => setIsLoaded(true)}
+      />
+      {!isLoaded ? <div className={styles.skeleton} aria-hidden="true" /> : null}
+    </div>
   ) : null;
 
   return (

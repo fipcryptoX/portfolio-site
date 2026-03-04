@@ -303,9 +303,11 @@ export async function getStaticProps() {
     ? await queryVisible({
         databaseId: projectsDbId,
         sorts: [{ property: "Date", direction: "descending" }],
-        pageSize: 4,
       })
     : [];
+  const featuredProjects = projectsList.filter((item) => getCheckbox(item, "Featured"));
+  const nonFeaturedProjects = projectsList.filter((item) => !getCheckbox(item, "Featured"));
+  const homeProjectsList = [...featuredProjects, ...nonFeaturedProjects].slice(0, 4);
 
   const vibeList = vibeDbId
     ? await queryVisible({
@@ -319,7 +321,7 @@ export async function getStaticProps() {
     props: {
       updatesList,
       writingList,
-      projectsList,
+      projectsList: homeProjectsList,
       vibeList,
     },
     revalidate: 5,

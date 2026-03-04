@@ -42,11 +42,59 @@
   margin-top: 1rem;
 }
 
+.imageWrap {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  border-radius: 6px;
+  background: var(--gray4);
+}
+
 .image {
   border-radius: 6px;
   width: 100%;
   aspect-ratio: 16 / 9;
   object-fit: cover;
+  opacity: 1;
+  transition: opacity 0.25s ease;
+}
+
+.imageLoaded {
+  opacity: 1;
+}
+
+.skeleton {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0.02) 0%,
+    rgba(255, 255, 255, 0.08) 50%,
+    rgba(255, 255, 255, 0.02) 100%
+  );
+  background-size: 200% 100%;
+  animation:
+    writingCardShimmer 1.2s ease-in-out infinite,
+    writingCardSkeletonOut 2.8s ease forwards;
+}
+
+@keyframes writingCardShimmer {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
+}
+
+@keyframes writingCardSkeletonOut {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    visibility: hidden;
+  }
 }
 
 .content {

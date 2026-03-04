@@ -9,7 +9,7 @@ function MyApp({ Component, pageProps }) {
   const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://portfolio.fipcrypto.com";
   const description =
     "I'm a crypto-native Content Strategist with 4+ years in Web3. Learn more about me here";
-  const previewImage = `${siteUrl}/og/gideon-ng-1200x630.svg`;
+  const previewImage = `${siteUrl}/favicon.gif?v=20260304`;
 
   return (
     <>
@@ -17,8 +17,10 @@ function MyApp({ Component, pageProps }) {
         <title>Gideon Ng</title>
         <meta property="og:title" content="Gideon Ng" />
         <meta property="og:description" content={description} />
-        <meta property="og:image:width" content="1200" />
-        <meta property="og:image:height" content="630" />
+        <meta property="og:image" content={previewImage} />
+        <meta property="og:image:type" content="image/gif" />
+        <meta property="og:image:width" content="200" />
+        <meta property="og:image:height" content="202" />
         <meta property="og:type" content="website" />
         <meta property="og:url" content={siteUrl} />
         <meta name="twitter:card" content="summary_large_image" />
