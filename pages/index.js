@@ -157,6 +157,14 @@ export default function Home({ updatesList, writingList, projectsList, vibeList 
               <PenLine size={14} strokeWidth={2} aria-hidden="true" />
               <span>Writing</span>
             </a>
+            <a href="#projectsSection" className={styles.mobileQuickLink}>
+              <FolderKanban size={14} strokeWidth={2} aria-hidden="true" />
+              <span>Projects</span>
+            </a>
+            <a href="#vibeCodingSection" className={styles.mobileQuickLink}>
+              <Code2 size={14} strokeWidth={2} aria-hidden="true" />
+              <span>Vibe Coding</span>
+            </a>
           </div>
           <AnimatePresence mode={"sync"}>
             {isVisible && (
@@ -248,7 +256,7 @@ export default function Home({ updatesList, writingList, projectsList, vibeList 
               );
             })}
           </ul>
-          <div className={styles.homeSectionContainer}>
+          <div className={styles.homeSectionContainer} id="projectsSection">
             <h2 className={styles.homeSectionTitle}>
               <span className={styles.homeSectionTitleWithIcon}>
                 <FolderKanban size={18} strokeWidth={2} aria-hidden="true" />
@@ -272,7 +280,7 @@ export default function Home({ updatesList, writingList, projectsList, vibeList 
               />
             ))}
           </ul>
-          <div className={styles.homeSectionContainer}>
+          <div className={styles.homeSectionContainer} id="vibeCodingSection">
             <h2 className={styles.homeSectionTitle}>
               <span className={styles.homeSectionTitleWithIcon}>
                 <Code2 size={18} strokeWidth={2} aria-hidden="true" />

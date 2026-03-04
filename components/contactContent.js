@@ -108,7 +108,7 @@ export default function ContactContent() {
           </a>
           <a
             className={styles.textButton}
-            href="https://read.cv/sj"
+            href="https://file.notion.so/f/f/59a6df0d-fbce-4cec-9eab-4a02c0e81a49/8a0528fb-75e4-401b-adad-12d504deacea/Resume_Gideon_Ng.pdf?table=block&id=31935103-aee9-80b6-80cb-e3c1d477fce3&spaceId=59a6df0d-fbce-4cec-9eab-4a02c0e81a49&expirationTimestamp=1772661600000&signature=eROG9g5AIHJ9nF38xJeAM0Em0fQBdPiIKW6ZXsbg4kk&downloadName=Resume_Gideon_Ng.pdf"
             target="_blank"
             rel="noopener noreferrer"
           >

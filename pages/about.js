@@ -65,8 +65,21 @@ export default function About({ list }) {
                 personal brand.
               </p>
               <p>
-                These experiences have pushed my writing to cater to both developers
-                and complete beginners alike.
+                These experiences have pushed me to write for both developers and
+                complete beginners alike as my target audience.
+              </p>
+              <p>
+                I&apos;m currently exploring how to integrate AI into my workflows to
+                automate the tasks that I hate, and check out my vibe coding projects{" "}
+                <a
+                  className={util.normalLink}
+                  href="https://portfolio.fipcrypto.com/vibe-coding"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  here
+                </a>
+                .
               </p>
               <p>Here&apos;s what I&apos;ve built:</p>
               <ul>
