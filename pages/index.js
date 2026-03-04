@@ -3,54 +3,52 @@ import React, { useEffect } from "react";
 import util from "../styles/util.module.css";
 import Link from "next/link";
 import Tile from "../components/tiles/homeVersions/tile";
-import ReadingListTile from "../components/tiles/homeVersions/readingListTile";
-import GoodsTile from "../components/tiles/homeVersions/goodsTile";
-import StoreTile from "../components/tiles/homeVersions/storeTile";
+import ContentCard from "../components/tiles/contentCard";
 import styles from "../pages/index.module.css";
-import toast, { Toaster } from "react-hot-toast";
 import OnboardingCard from "../components/onboardingCard";
 import { motion, AnimatePresence } from "framer-motion";
-const { Client } = require("@notionhq/client");
 import Script from "next/script";
+import { FolderKanban, Code2 } from "lucide-react";
+import {
+  getCheckbox,
+  getDatabaseId,
+  getDate,
+  getFileUrl,
+  getMultiSelect,
+  getRichText,
+  getRichTextPlain,
+  getSlug,
+  getTitle,
+  getUrl,
+  queryVisible,
+} from "../lib/notion-portfolio";
 
-export default function Home({ updatesList, goodsList, readingListList }) {
+export default function Home({ updatesList, writingList, projectsList, vibeList }) {
   //create masterlist objects with uuid and text and cta
   const tips = [
     {
       id: "useShortCut",
-      text: "Use keyboard shortcut 1 → 9 to navigate between pages. Try press 2, 3, 4, then 1 to come back here.",
+      text: "Use keyboard shortcuts 1 → 6 to navigate between pages.",
       ctaText: null,
       ctaLink: null,
     },
     {
-      id: "firstTime",
-      text: "Don't know me yet? My name is SJ, and I love over-engineering my personal website.",
-      ctaText: "More about me →",
+      id: "getToKnowMe",
+      text: "Get to know me: Learn more about who I am and what I do in my",
+      ctaText: "about page →",
       ctaLink: "/about",
     },
     {
-      id: "seeTalent",
-      text: "Many come here for my list of talented builders. If you are looking for a job, drop me a note.",
-      ctaText: "Go to Talent →",
-      ctaLink: "/talent",
+      id: "writingProud",
+      text: "Here are the pieces of writing that I'm",
+      ctaText: "most proud of →",
+      ctaLink: "/writing",
     },
     {
-      id: "seeHowItWasBuilt",
-      text: "If you are curious how the site was built, I have a Twitter thread on it.",
-      ctaText: "Check it out →",
-      ctaLink: "https://twitter.com/sjzhang_/status/1526189236084408324",
-    },
-    {
-      id: "openCal",
-      text: "I enjoy meeting random people and help where I can. ",
-      ctaText: "My open calendar is here ↗",
-      ctaLink: "https://cal.com/sjzhang/15min",
-    },
-    {
-      id: "support",
-      text: "If this website helped you, or I helped you, feel free to ",
-      ctaText: "check out some goodies →",
-      ctaLink: "/store",
+      id: "vibeProjects",
+      text: "I've gone down the rabbit hole of vibe coding,",
+      ctaText: "here are some of my projects →",
+      ctaLink: "/vibe-coding",
     },
   ];
   //create currentlist of what user need to see
@@ -70,8 +68,6 @@ export default function Home({ updatesList, goodsList, readingListList }) {
     //hide the tip section - framer motion depends on this
     newTips.length < 1 ? setIsVisible(false) : setIsVisible(true);
   }, []);
-
-  const [userTime, setUserTime] = React.useState(null);
 
   //if all dismissed destroy the box with motion
   useEffect(() => {
@@ -111,30 +107,14 @@ export default function Home({ updatesList, goodsList, readingListList }) {
     return () => thisPage.removeEventListener("scroll", handleScroll);
   }, []);
 
-  useEffect(() => {
-    const hour = new Date().getHours();
-    var greeting =
-      hour > 17
-        ? "Good evening"
-        : hour > 11
-        ? "Good afternoon"
-        : hour > 4
-        ? "Good morning"
-        : hour > 2
-        ? "It's late, go to bed"
-        : "Hello";
-    setUserTime(greeting);
-  }, []);
-
   const description =
     "I’m a designer and developer by training and trade. I spend most of my spare time reading about business, finance and crypto. If this combination interests you, welcome to my corner of the internet. This is where I share my reading list, investment updates, and software adventures.";
 
   return (
     <>
       <Head>
-        <title>SJ · Home</title>
+        <title>Gideon Ng</title>
         <meta name="description" content={description} />
-        <link rel="icon" href="/favicon.gif" type="image/gif" />
         <meta property="og:image" content="https://www.sj.land/og/index.png" />
       </Head>{" "}
       <script
@@ -152,14 +132,10 @@ export default function Home({ updatesList, goodsList, readingListList }) {
       </Script>
       <main className={util.page} id="recentsPage">
         <div className={styles.homeColumn}>
-          <h1 className={styles.homeGreetingTitle}>
-            {userTime ? userTime : "Hello"}
-          </h1>
+          <h1 className={styles.homeGreetingTitle}>Hey, I&apos;m Gideon</h1>
           <span className={styles.tinyText}>
-            My name is SJ — Welcome to sj.land.{" "}
-            {isVisible
-              ? `Below are some tips to get you started on this website.`
-              : null}
+            I&apos;m a crypto-native Content Strategist with 4+ years in Web3. Here are
+            some tips on how to navigate this website:
             {!isVisible ? (
               <span onClick={resetOnboarding} className={styles.reset}>
                 Need a refresher? Reset onboarding.
@@ -215,66 +191,84 @@ export default function Home({ updatesList, goodsList, readingListList }) {
               <Tile
                 key={item.id}
                 internalUrl={item.properties.Path?.url || null}
-                logoUrl={item.properties.Logo?.files[0]?.file?.url || null}
-                title={item.properties.Name.title[0].plain_text}
-                content={item.properties.Body.rich_text}
-                url={item.properties.URL.url}
-                date={item.properties.Time.date.start}
-                tags={item.properties.Tags.multi_select}
+                logoUrl={getFileUrl(item, "Logo")}
+                title={getTitle(item)}
+                content={getRichText(item, "Description")}
+                url={getUrl(item, "URL") || "#"}
+                date={getDate(item, "Date") || item.created_time}
               />
             ))}
           </ul>
           <div className={styles.homeSectionContainer}>
-            <h2 className={styles.homeSectionTitle}>Aesthetic Goods</h2>
-            <Link href="/goods">
+            <h2 className={styles.homeSectionTitle}>Writing</h2>
+            <Link href="/writing">
               <a className={styles.homeLinkButton}>View All</a>
             </Link>
           </div>
-          <ul className={styles.homeGoodsGrid}>
-            {goodsList.map((link) => (
-              <GoodsTile
-                key={link.id}
-                title={link.properties.Name.title[0].plain_text}
-                url={link.properties.URL.url}
-                date={link.created_time}
-                note={link.properties.Note.rich_text}
-                fav={link.properties.Fav.checkbox}
-                tags={link.properties.Tags.multi_select}
-                thumbnailUrl={link.properties.Thumbnail.files[0].file.url}
-                price={link.properties.Price.number}
-                brand={link.properties.Brand.rich_text[0].plain_text}
-              />
-            ))}
-          </ul>
-          <div className={styles.homeSectionContainer}>
-            <h2 className={styles.homeSectionTitle}>Reading List</h2>
-            <Link href="/reading-list">
-              <a className={styles.homeLinkButton}>View All</a>
-            </Link>
-          </div>{" "}
           <ul className={styles.homeReadingGrid}>
-            {readingListList.map((link) => (
-              <ReadingListTile
-                key={link.id}
-                title={link.properties.Name.title[0].plain_text}
-                url={link.properties.URL.url}
-                date={link.created_time}
-                fav={link.properties.Fav.checkbox}
-                tags={link.properties.Tags.multi_select}
+            {writingList.map((item) => {
+              const articleUrl = getUrl(item, "ArticleURL") || item.url || "#";
+              return (
+              <ContentCard
+                key={item.id}
+                title={getTitle(item)}
+                excerpt={getRichTextPlain(item, "Excerpt")}
+                href={articleUrl}
+                external={true}
+                imageUrl={getFileUrl(item, "Cover")}
+                tags={getMultiSelect(item, "Tags")}
+                date={getDate(item, "Published")}
+              />
+              );
+            })}
+          </ul>
+          <div className={styles.homeSectionContainer}>
+            <h2 className={styles.homeSectionTitle}>
+              <span className={styles.homeSectionTitleWithIcon}>
+                <FolderKanban size={18} strokeWidth={2} aria-hidden="true" />
+                Projects
+              </span>
+            </h2>
+            <Link href="/projects">
+              <a className={styles.homeLinkButton}>View All</a>
+            </Link>
+          </div>
+          <ul className={styles.homeReadingGrid}>
+            {projectsList.map((item) => (
+              <ContentCard
+                key={item.id}
+                title={getTitle(item)}
+                excerpt={getRichTextPlain(item, "Summary")}
+                href={`/projects/${getSlug(item)}`}
+                imageUrl={getFileUrl(item, "Cover")}
+                tags={getMultiSelect(item, "Tags")}
+                date={getDate(item, "Date")}
               />
             ))}
           </ul>
           <div className={styles.homeSectionContainer}>
-            <h2 className={styles.homeSectionTitle}>Boutique</h2>
-            <Link href="/store">
+            <h2 className={styles.homeSectionTitle}>
+              <span className={styles.homeSectionTitleWithIcon}>
+                <Code2 size={18} strokeWidth={2} aria-hidden="true" />
+                Vibe Coding
+              </span>
+            </h2>
+            <Link href="/vibe-coding">
               <a className={styles.homeLinkButton}>View All</a>
             </Link>
           </div>
-          <ul className={styles.homeStoreGrid}>
-            <StoreTile id="W01-01" title="W01-01" type="6K Desktop + Mobile" />
-            <StoreTile id="W01-02" title="W01-02" type="6K Desktop + Mobile" />
-            <StoreTile id="W01-03" title="W01-03" type="6K Desktop + Mobile" />
-            <StoreTile id="W01-04" title="W01-04" type="6K Desktop + Mobile" />
+          <ul className={styles.homeReadingGrid}>
+            {vibeList.map((item) => (
+              <ContentCard
+                key={item.id}
+                title={getTitle(item)}
+                excerpt={getRichTextPlain(item, "Summary")}
+                href={`/vibe-coding/${getSlug(item)}`}
+                imageUrl={getFileUrl(item, "Cover")}
+                tags={getMultiSelect(item, "Tags")}
+                date={getDate(item, "Date")}
+              />
+            ))}
           </ul>
         </div>
       </main>
@@ -284,72 +278,51 @@ export default function Home({ updatesList, goodsList, readingListList }) {
 
 //notion API
 export async function getStaticProps() {
-  const notion = new Client({ auth: process.env.NOTION_API_KEY });
-  const updatesResponse = await notion.databases.query({
-    database_id: process.env.NOTION_RECENTS_ID,
-    filter: {
-      and: [
-        {
-          property: "Display",
-          checkbox: {
-            equals: true,
-          },
-        },
-      ],
-    },
-    sorts: [
-      {
-        property: "Time",
-        direction: "descending",
-      },
-    ],
-    page_size: 4,
-  });
-  const goodsResponse = await notion.databases.query({
-    database_id: process.env.NOTION_GOODS_ID,
-    filter: {
-      and: [
-        {
-          property: "Display",
-          checkbox: {
-            equals: true,
-          },
-        },
-      ],
-    },
-    sorts: [
-      {
-        property: "Created",
-        direction: "descending",
-      },
-    ],
-    page_size: 5,
-  });
-  const readingListResponse = await notion.databases.query({
-    database_id: process.env.NOTION_READINGLIST_ID,
-    filter: {
-      and: [
-        {
-          property: "Display",
-          checkbox: {
-            equals: true,
-          },
-        },
-      ],
-    },
-    sorts: [
-      {
-        property: "Created",
-        direction: "descending",
-      },
-    ],
-    page_size: 8,
-  });
+  const updatesDbId = getDatabaseId("NOTION_UPDATES_ID", "NOTION_RECENTS_ID");
+  const writingDbId = getDatabaseId("NOTION_WRITING_ID", "NOTION_GOODS_ID");
+  const projectsDbId = getDatabaseId("NOTION_PROJECTS_ID", "NOTION_CAM_PROJECTS_ID");
+  const vibeDbId = getDatabaseId("NOTION_VIBE_CODING_ID", "NOTION_READINGLIST_ID");
+
+  const updatesList = updatesDbId
+    ? await queryVisible({
+        databaseId: updatesDbId,
+        sorts: [{ property: "Date", direction: "descending" }],
+        pageSize: 4,
+      })
+    : [];
+
+  const writingVisible = writingDbId
+    ? await queryVisible({
+        databaseId: writingDbId,
+        sorts: [{ property: "Published", direction: "descending" }],
+      })
+    : [];
+  const featuredWriting = writingVisible.filter((item) => getCheckbox(item, "Featured"));
+  const nonFeaturedWriting = writingVisible.filter((item) => !getCheckbox(item, "Featured"));
+  const writingList = [...featuredWriting, ...nonFeaturedWriting].slice(0, 4);
+
+  const projectsList = projectsDbId
+    ? await queryVisible({
+        databaseId: projectsDbId,
+        sorts: [{ property: "Date", direction: "descending" }],
+        pageSize: 4,
+      })
+    : [];
+
+  const vibeList = vibeDbId
+    ? await queryVisible({
+        databaseId: vibeDbId,
+        sorts: [{ property: "Date", direction: "descending" }],
+        pageSize: 4,
+      })
+    : [];
+
   return {
     props: {
-      updatesList: updatesResponse.results,
-      goodsList: goodsResponse.results,
-      readingListList: readingListResponse.results,
+      updatesList,
+      writingList,
+      projectsList,
+      vibeList,
     },
     revalidate: 5,
   };

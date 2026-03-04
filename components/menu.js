@@ -1,9 +1,18 @@
 import styles from "../components/menu.module.css";
-import { ThemeChanger } from "./theme";
 import Link from "next/link";
 import NavLink from "./navLink";
 import Contact from "./contact";
 import util from "../styles/util.module.css";
+import {
+  Code2,
+  FolderKanban,
+  House,
+  Linkedin,
+  MessageCircle,
+  MessageSquareQuote,
+  PenLine,
+  UserRound,
+} from "lucide-react";
 
 export default function Menu() {
   return (
@@ -12,71 +21,47 @@ export default function Menu() {
         <Link href="/">
           <img
             className={util.hiddenOnMobile + " " + util.pointer + " logoInvert"}
-            src="/logo.png"
+            src="/logo.svg"
             alt="site logo"
           ></img>
         </Link>
 
         <nav className={styles.nav}>
-          <NavLink svg="recents" href="/" label="Home" shortcut="1" />
-          <NavLink svg="about" href="/about" label="About" shortcut="2" />
-
+          <NavLink svg="recents" href="/" label="Home" shortcut="1" icon={House} />
+          <NavLink svg="about" href="/about" label="About" shortcut="2" icon={UserRound} />
+          <NavLink svg="edit-3" href="/writing" label="Writing" shortcut="3" icon={PenLine} />
           <NavLink
             svg="projects"
             href="/projects"
             label="Projects"
-            shortcut="3"
+            shortcut="4"
+            icon={FolderKanban}
           />
-          <NavLink svg="edit-3" href="/writing" label="Writing" shortcut="4" />
           <NavLink
-            svg="investments"
-            href="/investments"
-            label="Investments"
+            svg="zap"
+            href="/vibe-coding"
+            label="Vibe Coding"
             shortcut="5"
+            icon={Code2}
           />
           <NavLink
-            svg="shopping-cart"
-            href="/store"
-            label="Boutique"
+            svg="users"
+            href="/kind-words"
+            label="Kind Words"
             shortcut="6"
-          />
-          <p className={styles.divider}>Resources</p>
-          <NavLink
-            svg="reading"
-            href="/reading-list"
-            label="Reading List"
-            shortcut="7"
-          />
-          <NavLink
-            svg="shopping-bag"
-            href="/goods"
-            label="Aesthetic Goods"
-            shortcut="8"
-          />
-          <NavLink svg="users" href="/talent" label="Talent" shortcut="9" />
-          <NavLink
-            svg="newsletters"
-            href="/newsletters"
-            label="Newsletters"
-            shortcut="0"
-          />
-          <NavLink
-            svg="podcasts"
-            href="/podcasts"
-            label="Podcasts"
-            shortcut="-"
+            icon={MessageSquareQuote}
           />
           <p className={styles.divider}>Stay in touch</p>
-          <Contact svg="chat" label="Contact" shortcut="/" />
+          <Contact svg="chat" label="Contact" icon={MessageCircle} />
           <NavLink
-            svg="twitter"
-            href="https://twitter.com/sjzhang_"
-            label="Twitter"
+            svg="linkedin"
+            href="https://www.linkedin.com/in/gideon-ng/"
+            label="LinkedIn"
             external="true"
+            icon={Linkedin}
           />
         </nav>
       </div>
-      <ThemeChanger />
     </div>
   );
 }

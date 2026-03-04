@@ -20,12 +20,11 @@ export default function Oriant() {
   return (
     <>
       <Head>
-        <title>Oriant</title>
+        <title>Gideon Ng</title>
         <meta
           name="description"
           content="A design exercise to encourage students exploring orientation events and manage their orientation schedules. It was a 5 day project that I covered from research to prototyping."
         />
-        <link rel="icon" href="/favicon.gif" />{" "}
         <meta property="og:image" content="https://www.sj.land/og/index.png" />
       </Head>
 

@@ -157,9 +157,8 @@ export default function Compound() {
   return (
     <>
       <Head>
-        <title>Compound Planning</title>
+        <title>Gideon Ng</title>
         <meta name="description" content={description} />
-        <link rel="icon" href="/favicon.gif" />
         <meta property="og:image" content="https://www.sj.land/og/index.png" />
       </Head>
 

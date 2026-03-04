@@ -20,12 +20,11 @@ export default function Mixily() {
   return (
     <>
       <Head>
-        <title>Mixily</title>
+        <title>Gideon Ng</title>
         <meta
           name="description"
           content="I freelanced a few month for the lightweight event planning platform. As a Facebook Event alternative that focuses on privacy and being inclusive to non-facebook users, Mixily allows you to create and manage events, RSVPs, message attendees."
         />
-        <link rel="icon" href="/favicon.gif" />{" "}
         <meta property="og:image" content="https://www.sj.land/og/index.png" />
       </Head>
 

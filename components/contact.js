@@ -1,44 +1,62 @@
 import styles from "../components/contact.module.css";
-import React, { useEffect } from "react";
+import React, { useEffect, useRef } from "react";
 import Image from "next/image";
 import * as Dialog from "@radix-ui/react-dialog";
 import util from "../styles/util.module.css";
 import ContactContent from "./contactContent";
 import * as Tooltip from "@radix-ui/react-tooltip";
 
-export default function Contact({ svg, label, shortcut }) {
-  var time = 0;
+export default function Contact({ svg, label, shortcut, icon }) {
+  const LucideIcon = icon;
+  const lastOpenRef = useRef(0);
 
   useEffect(() => {
-    setInterval(function () {
-      time++;
-    }, 200);
-  }, []);
+    if (!shortcut) return;
 
-  useEffect(() => {
-    document.addEventListener("keypress", function (event) {
-      if (event.key === shortcut && time > 1) {
-        document.getElementById("contactTrigger").click();
-        time = 0;
+    const onKeyPress = (event) => {
+      if (event.key !== shortcut) return;
+
+      const now = Date.now();
+      // Prevent rapid repeated openings from key repeat.
+      if (now - lastOpenRef.current < 300) return;
+
+      const trigger = document.getElementById("contactTrigger");
+      if (trigger) {
+        trigger.click();
+        lastOpenRef.current = now;
       }
-    });
-  });
+    };
+
+    document.addEventListener("keypress", onKeyPress);
+    return () => document.removeEventListener("keypress", onKeyPress);
+  }, [shortcut]);
 
   return (
     <Dialog.Root>
       <Dialog.Trigger asChild id="contactTrigger">
         <div className={styles.item}>
           <div className={styles.left}>
-            <div className={util.icon}>
-              <Image
-                className={"iconInvert"}
-                priority
-                src={"/feather/" + svg + ".svg"}
-                height={66}
-                width={66}
-                alt={label}
-              />
-            </div>
+            {LucideIcon ? (
+              <div className={util.icon}>
+                <LucideIcon
+                  className={styles.lucideIcon}
+                  size={16}
+                  strokeWidth={2}
+                  aria-hidden="true"
+                />
+              </div>
+            ) : (
+              <div className={util.icon}>
+                <Image
+                  className={"iconInvert"}
+                  priority
+                  src={"/feather/" + svg + ".svg"}
+                  height={66}
+                  width={66}
+                  alt={label}
+                />
+              </div>
+            )}
 
             <p className={styles.label}>{label}</p>
           </div>

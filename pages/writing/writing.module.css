@@ -1,0 +1,25 @@
+.column {
+  width: 100%;
+  max-width: 900px;
+  padding: 2rem 0 3rem;
+}
+
+.description {
+  max-width: 760px;
+  margin-top: 0.75rem;
+}
+
+.grid {
+  list-style: none;
+  margin: 2.5rem 0 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.9rem;
+}
+
+@media (max-width: 760px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+}

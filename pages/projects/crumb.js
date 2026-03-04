@@ -20,12 +20,11 @@ export default function Oriant() {
   return (
     <>
       <Head>
-        <title>Crumb</title>
+        <title>Gideon Ng</title>
         <meta
           name="description"
           content="I started working with Crumb to come up with a few website designs. I ended up implementing a different design for them."
         />
-        <link rel="icon" href="/favicon.gif" />{" "}
         <meta property="og:image" content="https://www.sj.land/og/index.png" />
       </Head>
 

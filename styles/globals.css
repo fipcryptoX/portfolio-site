@@ -5,6 +5,11 @@
 @import "@radix-ui/colors/blue.css";
 @import "@radix-ui/colors/blueDark.css";
 
+/* Prevent rare hydration/theme boot lock that can leave body hidden. */
+body {
+  display: block !important;
+}
+
 @font-face {
   font-family: "Aktiv Grotesk";
   src: url("/fonts/AktivGroteskVF_W_Wght.woff2") format("woff2 supports variations"),
@@ -140,15 +145,16 @@ html {
 }
 
 .logoInvert {
-  width: 130px;
-  margin: 1.775rem 0rem 1rem 0.975rem;
+  width: 220px;
+  margin: 1.775rem 0 1rem 0.65rem;
+  display: block;
   transition: color 0.2s ease;
   opacity: 0.9;
   -webkit-user-drag: none;
 }
 
 .dark-theme .logoInvert {
-  filter: invert(1);
+  filter: none;
 }
 
 html,

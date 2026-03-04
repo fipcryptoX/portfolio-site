@@ -20,7 +20,7 @@ export default function Oriant() {
   return (
     <>
       <Head>
-        <title>BillShare</title>
+        <title>Gideon Ng</title>
         <meta
           name="description"
           content="A design exercise to enable people splitting bills effectively.
@@ -29,7 +29,6 @@ export default function Oriant() {
                 methods. It was a 4 day project that I carried out from research
                 to hi-fidelity UI design."
         />
-        <link rel="icon" href="/favicon.gif" />{" "}
         <meta property="og:image" content="https://www.sj.land/og/index.png" />
       </Head>
 

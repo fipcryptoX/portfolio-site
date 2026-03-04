@@ -1,14 +1,28 @@
 import "../styles/globals.css";
-import { ThemeProvider } from "next-themes";
+import Head from "next/head";
 import Background from "../components/background";
 import Menu from "../components/menu";
-import toast, { Toaster } from "react-hot-toast";
-import React, { useEffect } from "react";
+import { Toaster } from "react-hot-toast";
 import { Analytics } from "@vercel/analytics/react";
 
 function MyApp({ Component, pageProps }) {
   return (
-    <ThemeProvider attribute="class" value={{ dark: "dark-theme" }}>
+    <>
+      <Head>
+        <title>Gideon Ng</title>
+        <link
+          rel="icon"
+          href="/favicon-light.svg"
+          type="image/svg+xml"
+          media="(prefers-color-scheme: light)"
+        />
+        <link
+          rel="icon"
+          href="/favicon-dark.svg"
+          type="image/svg+xml"
+          media="(prefers-color-scheme: dark)"
+        />
+      </Head>
       <Toaster
         toastOptions={{
           duration: 1500,
@@ -24,7 +38,7 @@ function MyApp({ Component, pageProps }) {
       <Menu />
       <Component {...pageProps} />
       <Analytics />
-    </ThemeProvider>
+    </>
   );
 }
 

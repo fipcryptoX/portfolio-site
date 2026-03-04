@@ -1,0 +1,73 @@
+.column {
+  width: 100%;
+  max-width: 900px;
+  padding: 2rem 0 3rem;
+}
+
+.description {
+  max-width: 760px;
+  margin-top: 0.75rem;
+}
+
+.grid {
+  list-style: none;
+  margin: 2.5rem 0 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.card {
+  border: 1px solid var(--gray5);
+  border-radius: 10px;
+  padding: 1.15rem;
+  background: var(--gray2);
+  display: flex;
+  flex-direction: column;
+  min-height: 280px;
+}
+
+.quote {
+  margin: 0;
+  color: var(--gray11);
+  font-size: 1.02rem;
+  line-height: 1.45;
+  white-space: pre-line;
+}
+
+.person {
+  margin-top: auto;
+  padding-top: 0.9rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+}
+
+.avatar {
+  width: 38px;
+  height: 38px;
+  border-radius: 8px;
+  object-fit: cover;
+  display: block;
+}
+
+.name {
+  color: var(--gray12);
+  font-size: 1.08rem;
+  line-height: 1.3;
+}
+
+.nameLink {
+  color: var(--gray12);
+}
+
+.nameLink:hover {
+  color: var(--gray11);
+}
+
+@media (max-width: 760px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+}

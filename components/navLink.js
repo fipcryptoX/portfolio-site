@@ -6,8 +6,9 @@ import Image from "next/image";
 import { useRouter } from "next/router";
 import * as Tooltip from "@radix-ui/react-tooltip";
 
-export default function NavLink({ svg, label, href, shortcut, external }) {
+export default function NavLink({ svg, label, href, shortcut, external, icon }) {
   const router = useRouter();
+  const LucideIcon = icon;
 
   const ariaCurrent =
     router.asPath.includes(href) && href !== "/"
@@ -17,12 +18,17 @@ export default function NavLink({ svg, label, href, shortcut, external }) {
       : undefined;
 
   useEffect(() => {
-    document.addEventListener("keypress", function (event) {
+    if (!shortcut || external) return;
+
+    const onKeyPress = (event) => {
       if (event.key === shortcut) {
         router.push(href);
       }
-    });
-  });
+    };
+
+    document.addEventListener("keypress", onKeyPress);
+    return () => document.removeEventListener("keypress", onKeyPress);
+  }, [shortcut, href, router, external]);
 
   return external ? (
     <a
@@ -32,15 +38,26 @@ export default function NavLink({ svg, label, href, shortcut, external }) {
       rel="noopener noreferrer"
     >
       <div className={styles.left}>
-        <div className={styles.logoIcon}>
-          <Image
-            priority
-            src={"/icons/" + svg + ".svg"}
-            height={66}
-            width={66}
-            alt={label}
-          />
-        </div>
+        {LucideIcon ? (
+          <div className={util.icon}>
+            <LucideIcon
+              className={styles.lucideIcon}
+              size={16}
+              strokeWidth={2}
+              aria-hidden="true"
+            />
+          </div>
+        ) : (
+          <div className={styles.logoIcon}>
+            <Image
+              priority
+              src={"/icons/" + svg + ".svg"}
+              height={66}
+              width={66}
+              alt={label}
+            />
+          </div>
+        )}
 
         <p className={styles.label}>{label}</p>
       </div>
@@ -52,16 +69,27 @@ export default function NavLink({ svg, label, href, shortcut, external }) {
     <Link href={href}>
       <a className={styles.item} aria-current={ariaCurrent}>
         <div className={styles.left}>
-          <div className={util.icon}>
-            <Image
-              className={"iconInvert"}
-              priority
-              src={"/feather/" + svg + ".svg"}
-              height={66}
-              width={66}
-              alt={label}
-            />
-          </div>
+          {LucideIcon ? (
+            <div className={util.icon}>
+              <LucideIcon
+                className={styles.lucideIcon}
+                size={16}
+                strokeWidth={2}
+                aria-hidden="true"
+              />
+            </div>
+          ) : (
+            <div className={util.icon}>
+              <Image
+                className={"iconInvert"}
+                priority
+                src={"/feather/" + svg + ".svg"}
+                height={66}
+                width={66}
+                alt={label}
+              />
+            </div>
+          )}
           <p className={styles.label}>{label}</p>
         </div>
         {shortcut ? (

@@ -20,12 +20,11 @@ export default function ParkAmigo() {
   return (
     <>
       <Head>
-        <title>ParkAmigo</title>
+        <title>Gideon Ng</title>
         <meta
           name="description"
           content="I spent 2 weeks working on a complete redesign of the ParkAmigo iOS app."
         />
-        <link rel="icon" href="/favicon.gif" />{" "}
         <meta property="og:image" content="https://www.sj.land/og/index.png" />
       </Head>
 

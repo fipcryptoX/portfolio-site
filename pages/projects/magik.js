@@ -76,9 +76,8 @@ export default function Magik() {
   return (
     <>
       <Head>
-        <title>Magik</title>
+        <title>Gideon Ng</title>
         <meta name="description" content={description} />
-        <link rel="icon" href="/favicon.gif" />{" "}
         <meta property="og:image" content="https://www.sj.land/og/index.png" />
       </Head>
 

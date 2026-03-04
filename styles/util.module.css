@@ -186,6 +186,7 @@
   margin-right: -2px;
   border-radius: 4px;
   align-items: stretch;
+  color: var(--gray12);
 }
 
 .externalLink:after {
@@ -351,7 +352,7 @@
 }
 
 .projectDate {
-  text-align: center;
+  text-align: left;
   font-size: var(--font-m);
   color: var(--gray9);
   transition: color 0.25s ease;
@@ -485,7 +486,13 @@
   flex-direction: row;
   align-items: center;
   flex-wrap: nowrap;
-  overflow: scroll;
+  overflow-x: auto;
+  overflow-y: hidden;
+  scrollbar-width: none;
+}
+
+.tabRow::-webkit-scrollbar {
+  display: none;
 }
 
 .settingButton {
@@ -569,6 +576,13 @@
   flex-shrink: 0;
 }
 
+.flexGrid {
+  display: grid;
+  margin-top: 3.5rem;
+  gap: 1.7rem;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+}
+
 .tab:hover {
   color: var(--gray12);
   cursor: pointer;
@@ -598,13 +612,17 @@
 
 .backButton {
   padding: 12px 20px 12px 18px;
-  margin-top: 3.5rem;
+  margin: 3.5rem auto 0;
   border-radius: 24px;
   background-color: var(--gray2);
   color: var(--gray11);
   font-size: var(--font-m);
   font-weight: 480;
   transition: all 0.2s ease;
+  width: fit-content;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .backButton:hover {

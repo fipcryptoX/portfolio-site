@@ -1,6 +1,7 @@
 .mainText {
   font-size: var(--font-l);
   margin-bottom: 4px;
+  color: var(--gray12);
 }
 .subText {
   color: var(--gray9);

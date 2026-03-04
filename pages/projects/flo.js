@@ -20,12 +20,11 @@ export default function Flo() {
   return (
     <>
       <Head>
-        <title>Flo Recruit</title>
+        <title>Gideon Ng</title>
         <meta
           name="description"
           content="I spent 8 months freelancing for the legal recruiting platform. I worked on the dashboard for employer and school platform. I also designed and built the marketing website and a CMS driven blog."
         />
-        <link rel="icon" href="/favicon.gif" />{" "}
         <meta property="og:image" content="https://www.sj.land/og/index.png" />
       </Head>
 

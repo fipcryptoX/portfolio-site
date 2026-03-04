@@ -24,9 +24,8 @@ export default function Post({ postData }) {
   return (
     <>
       <Head>
-        <title> {postData.title}</title>
+        <title>Gideon Ng</title>
         <meta name="description" content={postData.contentHtml} />
-        <link rel="icon" href="/favicon.gif" />{" "}
         <meta property="og:image" content="https://www.sj.land/og/index.png" />
       </Head>
 

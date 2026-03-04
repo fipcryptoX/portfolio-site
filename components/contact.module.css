@@ -60,6 +60,11 @@
   width: 22px;
   height: 22px;
 }
+.lucideIcon {
+  color: var(--gray9);
+  opacity: 0.95;
+  display: block;
+}
 .overlay {
   position: fixed;
   top: 0;

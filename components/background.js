@@ -1,16 +1,13 @@
 import React, { useEffect } from "react";
-import { useTheme } from "next-themes";
 
 export default function Background() {
-  //   const { theme, setTheme } = useTheme();
-  const { resolvedTheme } = useTheme();
-
   useEffect(() => {
     const canvas = document.getElementById("canvas");
+    if (!canvas) return;
     const context = canvas.getContext("2d");
+    if (!context) return;
     let time = 0;
-
-    let baseNum = resolvedTheme == "dark" ? 50 : 150;
+    const baseNum = 50;
 
     const color = function (x, y, r, g, b) {
       context.fillStyle = `rgb(${r}, ${g}, ${b})`;
@@ -56,7 +53,7 @@ export default function Background() {
     };
 
     startAnimation();
-  }, [resolvedTheme]);
+  }, []);
   return (
     <>
       <canvas id="canvas" width="32px" height="20px" className="bg" />
