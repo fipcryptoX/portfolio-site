@@ -61,8 +61,7 @@ export default function About({ list }) {
               <p>
                 I&apos;ve worked across both sides of this space: the infrastructure
                 layer at Automata Network (TEEs and other privacy-enhancing
-                technologies), and the retail/education layer through FIP Crypto, my
-                personal brand.
+                technologies), and the retail/education layer through my personal brand (FIP Crypto, since rebranded to @gideonfip).
               </p>
               <p>
                 These experiences have pushed me to write for both developers and
@@ -70,10 +69,19 @@ export default function About({ list }) {
               </p>
               <p>
                 I&apos;m currently exploring how to integrate AI into my workflows to
-                automate the tasks that I hate, and check out my vibe coding projects{" "}
+                automate the tasks that I hate in content creation, and check out my vibe coding projects{" "}
                 <a
                   className={util.normalLink}
                   href="https://portfolio.fipcrypto.com/vibe-coding"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  here
+                </a>
+                . I'm sharing whatever that I learnt while building with AI on my YouTube channel{" "}
+                <a
+                  className={util.normalLink}
+                  href="https://www.youtube.com/@gideonfipbuilds"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
@@ -86,9 +94,6 @@ export default function About({ list }) {
                 <li>
                   Launched social campaigns at Automata averaging 100k+ views on
                   Twitter
-                </li>
-                <li>
-                  Grew communities like Discord from scratch from 0 to 2,000+ members
                 </li>
                 <li>
                   Generated 20M+ annual impressions on X through educational threads
