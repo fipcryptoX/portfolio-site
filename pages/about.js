@@ -61,7 +61,16 @@ export default function About({ list }) {
               <p>
                 I&apos;ve worked across both sides of this space: the infrastructure
                 layer at Automata Network (TEEs and other privacy-enhancing
-                technologies), and the retail/education layer through my personal brand (FIP Crypto, since rebranded to @gideonfip).
+                technologies), and the retail/education layer through my personal brand (FIP Crypto, since rebranded to{" "}
+                <a
+                  className={util.normalLink}
+                  href="https://x.com/gideonfip"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  @gideonfip
+                </a>
+                ).
               </p>
               <p>
                 These experiences have pushed me to write for both developers and
@@ -78,14 +87,14 @@ export default function About({ list }) {
                 >
                   here
                 </a>
-                . I&apos;m sharing whatever that I learnt while building with AI on my YouTube channel{" "}
+                . I&apos;m sharing whatever that I learnt while building with AI in my{" "}
                 <a
                   className={util.normalLink}
                   href="https://www.youtube.com/@gideonfipbuilds"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  here
+                  YouTube channel
                 </a>
                 .
               </p>

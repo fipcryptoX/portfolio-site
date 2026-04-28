@@ -30,8 +30,8 @@
     Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
   font-size: 15px;
   margin-left: 3px;
-  font-weight: 300;
-  color: var(--gray12);
+  font-weight: 400;
+  color: var(--text-primary);
 }
 
 .stack {
@@ -100,8 +100,8 @@
 .content {
   margin-top: 0.25rem;
   font-size: var(--font-m);
-  font-weight: 390;
-  color: var(--gray11);
+  font-weight: 400;
+  color: var(--text-secondary);
   overflow: hidden;
   text-overflow: ellipsis;
   display: -webkit-box;

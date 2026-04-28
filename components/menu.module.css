@@ -14,11 +14,13 @@
 
 .divider {
   padding: 1.25rem 0rem 0.5rem 0.875rem;
-  /* margin-top: 0.5rem; */
-  font-size: 11.6px;
-  font-weight: 480;
-  color: var(--gray9);
+  font-size: 11px;
+  font-weight: 500;
+  color: var(--text-muted);
   transition: color 0.15s ease;
+  font-family: var(--font-mono);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
 }
 
 .upper {
@@ -49,9 +51,9 @@
     height: 60px;
     top: auto;
     bottom: 0px;
-    border-top: 1px solid var(--linkContainerBorder);
+    border-top: 1px solid rgba(85, 157, 161, 0.15);
     margin: 0px;
-    background-color: var(--appbg);
+    background-color: var(--canvas);
     z-index: 9;
   }
 

@@ -44,7 +44,7 @@
   margin-top: 0.5rem;
   font-size: 12.6px;
   font-weight: 500;
-  color: var(--gray9);
+  color: var(--text-muted);
 }
 .outer {
   margin: 1rem 0rem 0rem;
@@ -58,8 +58,8 @@
   width: 6rem;
   flex-shrink: 0;
   font-size: var(--font-s);
-  font-weight: 390;
-  color: var(--gray9);
+  font-weight: 400;
+  color: var(--text-muted);
   text-align: right;
 }
 .inline {
@@ -78,8 +78,8 @@
     Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
   font-size: 15px;
   margin-left: 3px;
-  font-weight: 300;
-  color: var(--gray12);
+  font-weight: 400;
+  color: var(--text-primary);
 }
 .titleLink {
   transition: background-color 0.15s ease;

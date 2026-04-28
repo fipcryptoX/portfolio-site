@@ -73,31 +73,31 @@
   }
 }
 .price {
-  color: var(--gray10);
+  color: var(--text-tertiary);
   font-size: var(--font-l);
-  font-weight: 390;
+  font-weight: 400;
 }
 .title {
-  color: var(--gray12);
+  color: var(--text-primary);
   font-size: var(--font-m);
-  font-weight: 390;
+  font-weight: 400;
 }
 .brand {
-  color: var(--gray10);
+  color: var(--text-tertiary);
   font-size: var(--font-s);
-  font-weight: 390;
+  font-weight: 400;
   margin-top: 0.125rem;
 }
 .disclaimer {
-  color: var(--gray9);
+  color: var(--text-muted);
   font-size: 11.5px;
-  font-weight: 390;
+  font-weight: 400;
   opacity: 0.8;
 }
 .brandInModal {
-  color: var(--gray10);
+  color: var(--text-tertiary);
   font-size: var(--font-m);
-  font-weight: 390;
+  font-weight: 400;
   margin-top: 0.125rem;
   margin-bottom: 0.5rem;
 }
@@ -127,7 +127,7 @@
   opacity: 0.8;
 }
 .modalIcon {
-  font-weight: 300;
+  font-weight: 400;
   position: absolute;
   top: 0.5rem;
   right: 0.5rem;
@@ -137,7 +137,7 @@
     Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
   font-size: 15px;
   margin-left: 3px;
-  font-weight: 300;
+  font-weight: 400;
 }
 .overlay {
   position: fixed;
@@ -157,7 +157,7 @@
   display: flex;
   flex-direction: row;
   background-color: var(--modalBg);
-  color: var(--gray12);
+  color: var(--text-primary);
   box-shadow: rgba(20, 20, 20, 0.15) 0px 10px 38px -10px,
     rgba(20, 20, 20, 0.05) 0px 10px 20px -15px;
   border-radius: 1rem;
@@ -186,7 +186,7 @@
   animation: content-out 200ms ease-out forwards;
 }
 .content h1 h2 h3 p {
-  color: var(--gray12);
+  color: var(--text-primary);
 }
 
 @keyframes overlay-show {
@@ -227,7 +227,7 @@
 }
 .modalTitle {
   margin-bottom: 0.75rem;
-  font-weight: 580;
+  font-weight: 500;
 }
 
 @media (max-width: 700px) {

@@ -14,8 +14,8 @@
 }
 .tileTitle {
   font-size: var(--font-l);
-  font-weight: 390;
-  color: var(--gray12);
+  font-weight: 400;
+  color: var(--text-primary);
   transition: all 0.2s ease;
 }
 .container:hover {
@@ -36,7 +36,7 @@
   margin-top: 0.5rem;
   font-size: 13px;
   font-weight: 500;
-  color: var(--gray9);
+  color: var(--text-muted);
 }
 .outer {
   margin: 1rem 0rem 0rem;
@@ -51,15 +51,15 @@
   flex-shrink: 0;
   padding: 1rem;
   font-size: 12px;
-  font-weight: 390;
-  color: var(--gray9);
+  font-weight: 400;
+  color: var(--text-muted);
   text-align: right;
 }
 .url {
   margin: 0.35rem 0rem 0rem;
   font-size: var(--font-s);
-  font-weight: 390;
-  color: var(--gray9);
+  font-weight: 400;
+  color: var(--text-muted);
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -67,8 +67,8 @@
 .dateSub {
   margin-top: 0.25rem;
   font-size: var(--font-s);
-  font-weight: 390;
-  color: var(--gray9);
+  font-weight: 400;
+  color: var(--text-muted);
   /* max-width: 40%; */
   white-space: nowrap;
   overflow: hidden;
@@ -118,7 +118,7 @@
     Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
   font-size: 15px;
   margin-left: 3px;
-  font-weight: 300;
+  font-weight: 400;
 }
 
 @media (max-width: 700px) {

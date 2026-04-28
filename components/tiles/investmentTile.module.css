@@ -58,7 +58,7 @@
     Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
   font-size: 15px;
   margin-left: 3px;
-  font-weight: 300;
+  font-weight: 400;
 }
 .companyLink {
   transition: background-color 0.15s ease;
@@ -80,12 +80,12 @@
 .entry {
   font-size: var(--font-m);
   margin-top: 4px;
-  font-weight: 390;
-  color: var(--gray12);
+  font-weight: 400;
+  color: var(--text-primary);
 }
 .type {
   font-size: var(--font-s);
-  color: var(--gray9);
+  color: var(--text-muted);
 }
 .iconContainer {
   border-radius: 100px;

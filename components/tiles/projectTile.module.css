@@ -31,7 +31,7 @@
     Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
   font-size: 15px;
   margin-left: 3px;
-  font-weight: 300;
+  font-weight: 400;
 }
 
 .stack {
@@ -104,8 +104,8 @@
 .type {
   margin-top: 0.5rem;
   font-size: var(--font-s);
-  font-weight: 390;
-  color: var(--gray11);
+  font-weight: 400;
+  color: var(--text-secondary);
 }
 
 .outer {
@@ -120,8 +120,8 @@
   flex-shrink: 0;
   padding: 1rem;
   font-size: var(--font-s);
-  font-weight: 390;
-  color: var(--gray11);
+  font-weight: 400;
+  color: var(--text-secondary);
   text-align: right;
 }
 

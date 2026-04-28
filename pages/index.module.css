@@ -18,8 +18,8 @@
 
   font-size: clamp(56px, calc((100vw - 350px) * 0.1), 135px);
   margin-left: clamp(-12px, calc((100vw - 350px) * -0.009), 0px);
-  font-weight: 390;
-  color: var(--gray12);
+  font-weight: 400;
+  color: var(--text-primary);
   transition: color 0.25s ease;
   line-height: 1.1;
   flex-shrink: 0;
@@ -29,16 +29,18 @@
     margin-top: 3rem;
     margin-bottom: 1rem;
     font-size: 42px;
-    font-weight: 420;
+    font-weight: 400;
   }
 }
 .tinyText {
-  font-size: 13px;
-  color: var(--gray12);
-  font-weight: 380;
-  letter-spacing: 0.15px;
+  font-size: 16px;
+  color: var(--text-secondary);
+  font-weight: 400;
+  font-family: var(--font-serif);
+  letter-spacing: 0.1px;
   opacity: 0.9;
-  padding-bottom: 5rem;
+  padding-bottom: 1.25rem;
+  line-height: 1.6;
 }
 .mobileBio {
   display: none;
@@ -50,7 +52,7 @@
   display: inline-flex;
   align-items: center;
   gap: 0.3rem;
-  color: var(--gray11);
+  color: var(--text-secondary);
   font-size: 0.78rem;
   padding: 0.32rem 0.5rem;
   border: 1px solid var(--linkContainerBorderHover);
@@ -68,7 +70,7 @@
   transition: color 0.1s ease;
 }
 .reset:hover {
-  color: var(--gray11);
+  color: var(--text-secondary);
 }
 .introContainer {
   height: auto !important;
@@ -103,10 +105,11 @@
   .mobileBio {
     display: block;
     margin-top: 0.1rem;
-    color: var(--gray11);
-    font-size: 0.95rem;
-    line-height: 1.45;
+    color: var(--text-secondary);
+    font-size: 1.05rem;
+    line-height: 1.6;
     max-width: 40ch;
+    font-family: var(--font-serif);
   }
 
   .mobileQuickLinks {
@@ -237,8 +240,8 @@
 .homeSectionTitle {
   font-size: 1.25rem;
   line-height: 170%;
-  font-weight: 550;
-  color: var(--gray12);
+  font-weight: 500;
+  color: var(--text-primary);
   /* margin-bottom: 0.75rem; */
   transition: color 0.25s ease;
 }
@@ -249,7 +252,7 @@
 }
 .homeLinkButton {
   font-size: var(--font-s);
-  color: var(--gray9);
+  color: var(--text-muted);
   transition: background-color 0.075s ease-in, color 0.075s ease-in;
   border-radius: 5px;
   margin-right: -5px;
@@ -257,6 +260,6 @@
 }
 .homeLinkButton:hover {
   font-size: var(--font-s);
-  color: var(--gray11);
+  color: var(--text-secondary);
   background: var(--linkContainerBgHover);
 }

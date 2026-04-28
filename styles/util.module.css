@@ -10,16 +10,15 @@
   order: 1;
   flex-grow: 1;
   margin-left: 15.5rem;
-  background-color: var(--bg);
+  background-color: var(--canvas);
   overflow: auto;
   transition: background-color 0.2s ease;
-  box-shadow: 0px 1px 6px rgba(0, 0, 0, 0.035);
 }
 
 .viewTruncated {
   font-size: var(--font-m);
   line-height: 1.35;
-  color: var(--gray11);
+  color: var(--text-muted);
   max-width: 300px;
 }
 
@@ -80,11 +79,11 @@
 }
 
 .goodsDescription {
-  font-weight: 390;
+  font-weight: 400;
   padding: 0.125rem;
   line-height: 1.38;
   font-size: var(--font-s);
-  color: var(--gray9);
+  color: var(--text-muted);
   transition: color 0.25s ease;
   max-width: 336px;
   text-align: right;
@@ -93,10 +92,11 @@
 
 .textDivider {
   padding: 1.25rem 0rem 0rem 0.25rem;
-  /* margin-top: 0.5rem; */
-  font-size: 12.4px;
-  font-weight: 450;
-  color: var(--gray9);
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--text-muted);
+  font-family: var(--font-mono);
+  letter-spacing: 0.05em;
 }
 
 .center {
@@ -111,29 +111,32 @@
 
 .header {
   font-size: 2.275rem;
-  font-weight: 560;
+  font-weight: 500;
   margin-bottom: 1.5rem;
-  color: var(--gray12);
+  color: var(--text-primary);
   transition: color 0.25s ease;
+  font-family: var(--font-serif);
 }
 
 .projectHeader {
   font-size: 2.25rem;
-  font-weight: 620;
-  color: var(--gray12);
+  font-weight: 500;
+  color: var(--text-primary);
   transition: color 0.25s ease;
+  font-family: var(--font-serif);
 }
 
 .projectSectionHeader {
   font-size: 1.45rem;
-  font-weight: 520;
-  color: var(--gray12);
+  font-weight: 500;
+  color: var(--text-primary);
   transition: color 0.25s ease;
   width: 100%;
   padding-top: 6.5rem;
   margin-bottom: 0.25rem;
   padding-left: 1.25rem;
   padding-right: 1rem;
+  font-family: var(--font-serif);
 }
 
 .projectSectionHeader[data-size="l"] {
@@ -145,11 +148,11 @@
 }
 
 .projectDescription {
-  font-weight: 390;
+  font-weight: 400;
   padding: 0.125rem;
   line-height: 1.68;
   font-size: var(--font-l);
-  color: var(--gray11);
+  color: var(--text-secondary);
   transition: color 0.25s ease;
   max-width: 580px;
   margin-right: auto;
@@ -162,70 +165,39 @@
 @media (max-width: 700px) {
   .projectDescription {
     width: 100%;
-
   }
 }
 
 .goodsHeader {
   font-size: 1.75rem;
-  font-weight: 580;
-  color: var(--gray12);
+  font-weight: 500;
+  color: var(--text-primary);
   transition: color 0.25s ease;
+  font-family: var(--font-serif);
 }
 
 .normalLink:hover {
-  color: var(--gray10);
+  color: var(--brand);
 }
 
 .internalLink,
 .externalLink {
-  padding-right: 16px;
-  display: inline-flex;
-  padding-left: 4px;
-  margin-left: -3px;
-  margin-right: -2px;
-  border-radius: 4px;
-  align-items: stretch;
-  color: var(--gray12);
-}
-
-.externalLink:after {
-  display: inline-block;
-  padding: 0px 0px 0px 0px;
-  content: "↗";
-  width: 14px;
-  height: 16px;
-  margin-right: -16px;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
-    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
-  font-size: 15px;
-  margin-left: 2.5px;
-  font-weight: 300;
+  display: inline;
+  color: var(--text-primary);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  text-decoration-color: rgba(165, 197, 218, 0.4);
+  transition: color 0.2s ease, text-decoration-color 0.2s ease;
 }
 
 .pointer {
   cursor: pointer;
 }
 
-.internalLink:after {
-  display: inline-block;
-  padding: 0px 0px 0px 0px;
-  content: "→";
-  width: 14px;
-  height: 16px;
-  margin-right: -16px;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
-    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
-  font-size: 15px;
-  margin-left: 2.5px;
-  font-weight: 300;
-}
-
 .externalLink:hover,
 .internalLink:hover {
-  background-color: var(--gray4);
-  transition: all 0.2s ease;
-  color: var(--gray12);
+  color: var(--brand-light);
+  text-decoration-color: var(--brand-light);
 }
 
 .list {
@@ -233,13 +205,12 @@
   margin-top: 3rem;
 }
 
-
 .description {
-  font-weight: 390;
+  font-weight: 400;
   padding: 0.125rem;
   line-height: 1.6;
   font-size: var(--font-l);
-  color: var(--gray11);
+  color: var(--text-secondary);
   transition: color 0.25s ease;
   margin-top: 16px;
 }
@@ -249,18 +220,18 @@
 }
 
 .tileTitle {
-  font-weight: 390;
+  font-weight: 400;
   letter-spacing: 0.1px;
   line-height: 1.1;
   font-size: var(--font-l);
-  color: var(--gray12);
+  color: var(--text-primary);
   transition: color 0.25s ease;
 }
 
 .tileContent {
   margin-top: 0.25rem;
   font-size: var(--font-m);
-  color: var(--gray10);
+  color: var(--text-tertiary);
   line-height: 1.4;
   transition: color 0.25s ease;
 }
@@ -269,14 +240,13 @@
 .read li {
   font-size: var(--font-l);
   line-height: 1.75;
-  color: var(--gray12);
+  color: var(--text-primary);
   transition: color 0.25s ease;
 }
 
 .read p {
   margin-bottom: 1.25rem;
 }
-
 
 .read li {
   margin-bottom: 0.25rem;
@@ -286,60 +256,45 @@
   margin-top: 2.5rem;
   font-size: 1.4rem;
   line-height: 150%;
-  font-weight: 560;
-  color: var(--gray12);
+  font-weight: 500;
+  color: var(--text-primary);
   margin-bottom: 0.75rem;
   transition: color 0.25s ease;
+  font-family: var(--font-serif);
 }
 
 .read h2 {
   margin-top: 2rem;
   font-size: 1.25rem;
   line-height: 170%;
-  font-weight: 540;
-  color: var(--gray12);
+  font-weight: 500;
+  color: var(--text-primary);
   margin-bottom: 0.5rem;
   transition: color 0.25s ease;
+  font-family: var(--font-serif);
 }
 
 .read h3 {
   margin-top: 2rem;
   font-size: 1rem;
   line-height: 170%;
-  font-weight: 540;
-  color: var(--gray12);
+  font-weight: 500;
+  color: var(--text-primary);
   margin-bottom: 0.25rem;
   transition: color 0.25s ease;
+  font-family: var(--font-serif);
 }
 
 .read a {
-  padding-right: 16px;
-  display: inline-flex;
-  padding-left: 4px;
-  margin-left: -3px;
-  margin-right: -2px;
-  border-radius: 4px;
-  align-items: stretch;
-}
-
-.read a:after {
-  display: inline-block;
-  padding: 0px 0px 0px 0px;
-  content: "↗";
-  width: 14px;
-  height: 16px;
-  margin-right: -16px;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
-    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
-  font-size: 15px;
-  margin-left: 2.5px;
-  font-weight: 300;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  text-decoration-color: rgba(165, 197, 218, 0.4);
+  transition: color 0.2s ease, text-decoration-color 0.2s ease;
 }
 
 .read a:hover {
-  background-color: var(--gray4);
-  transition: all 0.2s ease;
-  color: var(--gray12);
+  color: var(--brand-light);
+  text-decoration-color: var(--brand-light);
 }
 
 .read ul {
@@ -354,8 +309,9 @@
 .projectDate {
   text-align: left;
   font-size: var(--font-m);
-  color: var(--gray9);
+  color: var(--text-muted);
   transition: color 0.25s ease;
+  font-family: var(--font-mono);
 }
 
 .inset {
@@ -364,11 +320,11 @@
 }
 
 .twitter {
-  background-color: var(--gray2);
+  background-color: var(--surface);
   display: flex;
   flex-direction: column;
   padding: clamp(4px, 6%, 36px) clamp(4px, 7%, 48px);
-  border-radius: 20px;
+  border-radius: 12px;
   gap: 1rem;
 }
 
@@ -383,7 +339,7 @@
 
 .twitterSubtitle {
   font-size: var(--font-m);
-  color: var(--gray10);
+  color: var(--text-tertiary);
 }
 
 .grid {
@@ -437,14 +393,15 @@
   margin-top: 3.5rem;
   font-size: 1.25rem;
   line-height: 170%;
-  font-weight: 550;
-  color: var(--gray12);
+  font-weight: 500;
+  color: var(--text-primary);
   margin-bottom: 0.75rem;
   transition: color 0.25s ease;
+  font-family: var(--font-serif);
 }
 
 .divider {
-  border-top: 1.5px solid var(--gray3);
+  border-top: 1px solid rgba(85, 157, 161, 0.15);
   margin: 4rem 0rem 2rem;
   transition: border 0.25s ease;
 }
@@ -467,9 +424,9 @@
   display: flex;
   flex-direction: row;
   align-items: center;
-  background-color: var(--linkContainerBgHover);
+  background-color: var(--surface-hover);
   padding: 1.25rem 1.5rem;
-  border-radius: 6px;
+  border-radius: 8px;
   margin: 1.5rem 0rem -2rem;
   justify-content: space-between;
   gap: 1rem;
@@ -508,7 +465,7 @@
 
 .settingButton:hover,
 .settingButton:focus {
-  background-color: var(--gray3);
+  background-color: var(--surface-hover);
 }
 
 .tabBar {
@@ -522,21 +479,19 @@
   top: -32px;
   height: 43px;
   z-index: 2;
-  background-color: var(--bg);
-
+  background-color: var(--canvas);
   transition: background-color 0.2s ease;
-  border-bottom: solid 1px var(--tabBorder);
+  border-bottom: solid 1px rgba(85, 157, 161, 0.15);
   box-sizing: border-box;
-  transition: border 0.25s ease;
   margin-bottom: 1.5rem;
 }
 
 .emptyState {
   padding: 3rem;
   font-size: var(--font-m);
-  color: var(--gray9);
-  border-radius: 6px;
-  border: 1px solid var(--gray3);
+  color: var(--text-muted);
+  border-radius: 8px;
+  border: 1px solid rgba(85, 157, 161, 0.15);
   display: flex;
   justify-content: center;
 }
@@ -547,16 +502,17 @@
 }
 
 .badge {
-  font-size: var(--font-m);
-  padding: 6px 8px 6px 8px;
+  font-size: var(--font-s);
+  padding: 4px 10px;
   line-height: 1;
-  background-color: var(--gray3);
+  background-color: var(--brand-faint);
   border-radius: 4px;
-  color: var(--gray11);
-  font-weight: 440;
+  color: var(--brand);
+  font-weight: 500;
   margin-top: 0.75rem;
   box-sizing: content-box;
   display: inline-block;
+  font-family: var(--font-mono);
 }
 
 .tab {
@@ -567,13 +523,14 @@
   box-sizing: border-box;
   transition: all 0.1s ease;
   line-height: 1;
-  color: var(--gray10);
+  color: var(--text-muted);
   background: transparent;
   border: none;
   border-bottom: solid 3px transparent;
   min-width: 1.75rem;
   margin-right: 0.875rem;
   flex-shrink: 0;
+  font-family: var(--font-serif);
 }
 
 .flexGrid {
@@ -584,7 +541,7 @@
 }
 
 .tab:hover {
-  color: var(--gray12);
+  color: var(--text-primary);
   cursor: pointer;
 }
 
@@ -593,8 +550,8 @@
 }
 
 .tab[aria-selected="true"] {
-  color: var(--gray12);
-  border-bottom: solid 3px var(--gray12);
+  color: var(--text-primary);
+  border-bottom: solid 3px var(--brand);
 }
 
 .imageBg {
@@ -607,33 +564,34 @@
   background-color: var(--imageBg);
   margin-bottom: 2rem;
   border-radius: 12px;
-  border: 1px solid var(--gray6);
+  border: 1px solid rgba(85, 157, 161, 0.2);
 }
 
 .backButton {
   padding: 12px 20px 12px 18px;
   margin: 3.5rem auto 0;
   border-radius: 24px;
-  background-color: var(--gray2);
-  color: var(--gray11);
+  background-color: var(--surface);
+  color: var(--text-secondary);
   font-size: var(--font-m);
-  font-weight: 480;
+  font-weight: 500;
   transition: all 0.2s ease;
   width: fit-content;
   display: flex;
   align-items: center;
   justify-content: center;
+  font-family: var(--font-serif);
 }
 
 .backButton:hover {
-  background-color: var(--gray4);
-  color: var(--gray12);
+  background-color: var(--surface-hover);
+  color: var(--text-primary);
 }
 
 .checkbox {
   all: unset;
-  background-color: var(--gray2);
-  border: 1px solid var(--gray6);
+  background-color: var(--surface);
+  border: 1px solid rgba(85, 157, 161, 0.3);
   width: 1rem;
   height: 1rem;
   border-radius: 0.25rem;
@@ -645,11 +603,11 @@
 }
 
 .checkbox:hover {
-  background-color: var(--gray3);
+  background-color: var(--surface-hover);
 }
 
 .checkbox:focus {
-  box-shadow: 0 0 0 2px var(--gray11);
+  box-shadow: 0 0 0 2px var(--brand);
 }
 
 .arrow {
@@ -672,71 +630,74 @@
 }
 
 .button:hover {
-  background-color: var(--gray4);
+  background-color: var(--surface-hover);
 }
 
 .iconButtonText {
   margin-left: 0.375rem;
   font-size: var(--font-m);
-  color: var(--gray12);
+  color: var(--text-primary);
   transition: color 0.15s ease;
 }
 
 .buttonText {
   font-size: var(--font-m);
-  color: var(--gray12);
+  color: var(--text-primary);
   transition: color 0.15s ease;
 }
 
 .singleButton {
-  border: 1px solid var(--gray4);
+  border: 1px solid rgba(85, 157, 161, 0.2);
   padding: 0.5rem 0.75rem;
   border-radius: 5px;
   transition: border 0.15s ease, background-color 0.15s ease, color 0.15s ease;
 }
 
 .secondaryButton {
-  background-color: var(--linkContainerBgHover);
-  border: 1px solid var(--gray5);
+  background-color: var(--surface-hover);
+  border: 1px solid rgba(85, 157, 161, 0.2);
   padding: 0.5rem 0.75rem;
   border-radius: 5px;
   transition: border 0.15s ease, background-color 0.15s ease, color 0.15s ease;
-  font-weight: 480;
-  color: var(--gray12);
+  font-weight: 500;
+  color: var(--text-primary);
   font-size: var(--font-m);
 }
 
 .secondaryButton:hover {
-  background-color: var(--linkContainerBorderHover);
+  background-color: var(--brand-faint);
+  border-color: var(--brand-muted);
 }
 
 .primaryButton {
-  background-color: var(--gray12);
-  color: var(--gray1);
+  background-color: var(--brand);
+  color: var(--text-primary);
   padding: 0.5rem 0.75rem;
   border-radius: 5px;
   transition: opacity 0.15s ease;
-  font-weight: 480;
+  font-weight: 500;
   font-size: var(--font-m);
+  font-family: var(--font-serif);
 }
 
 .primaryButton:hover {
   opacity: 0.85;
-  background-color: var(--gray12);
+  background-color: var(--brand);
 }
 
 .popover {
-  border-radius: 5px;
+  border-radius: 8px;
   padding: 12px 12px;
   display: flex;
   flex-direction: row;
   align-items: center;
   font-size: var(--font-m);
   line-height: 1;
-  color: var(--gray11);
-  background-color: var(--modalBg);
-  box-shadow: hsl(206 22% 7% / 60%) 0px 10px 38px -10px,
-    hsl(206 22% 7% / 30%) 0px 10px 20px -15px;
+  color: var(--text-secondary);
+  background-color: var(--surface);
+  box-shadow: 0px 10px 38px -10px rgba(0, 0, 0, 0.6),
+    0px 10px 20px -15px rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(85, 157, 161, 0.15);
 }
 
 @media (prefers-reduced-motion: no-preference) {
@@ -772,18 +733,20 @@
   align-items: center;
   font-size: var(--font-s);
   line-height: 1;
-  color: var(--gray11);
-  background-color: var(--modalBg);
-  box-shadow: hsl(206 22% 7% / 80%) 0px 10px 38px -10px,
-    hsl(206 22% 7% / 50%) 0px 10px 20px -15px;
+  color: var(--text-secondary);
+  background-color: var(--surface);
+  box-shadow: 0px 10px 38px -10px rgba(0, 0, 0, 0.8),
+    0px 10px 20px -15px rgba(0, 0, 0, 0.5);
+  border: 1px solid rgba(85, 157, 161, 0.15);
   z-index: 999;
+  font-family: var(--font-mono);
 }
 
 .tooltipLarge {
   border-radius: 0.5rem;
   padding: 14px 18px;
-  box-shadow: hsl(206 22% 7% / 30%) 0px 10px 38px -10px,
-    hsl(206 22% 7% / 20%) 0px 10px 20px -15px;
+  box-shadow: 0px 10px 38px -10px rgba(0, 0, 0, 0.3),
+    0px 10px 20px -15px rgba(0, 0, 0, 0.2);
 }
 
 @media (prefers-reduced-motion: no-preference) {

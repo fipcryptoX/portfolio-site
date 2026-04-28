@@ -15,7 +15,7 @@
 }
 
 .testimonial {
-  color: var(--gray11);
+  color: var(--text-secondary);
   white-space: pre-line;
 }
 
@@ -56,6 +56,6 @@
     Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
   font-size: 15px;
   margin-left: 2px;
-  font-weight: 300;
-  color: var(--gray12);
+  font-weight: 400;
+  color: var(--text-primary);
 }

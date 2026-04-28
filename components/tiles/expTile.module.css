@@ -9,14 +9,14 @@
 }
 .content {
   font-size: var(--font-l);
-  color: var(--gray11);
+  color: var(--text-secondary);
   margin-top: 8px;
   line-height: 1.5;
 }
 .date {
   width: 68px;
   font-size: var(--font-m);
-  color: var(--gray10);
+  color: var(--text-tertiary);
   margin-top: 1.5px;
   margin-bottom: 0.5rem;
 
@@ -40,8 +40,8 @@
 
 .type {
   font-size: 12px;
-  font-weight: 390;
-  color: var(--gray9);
+  font-weight: 400;
+  color: var(--text-muted);
 }
 .icon {
   border-radius: 100px;
@@ -67,7 +67,7 @@
     Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
   font-size: 15px;
   margin-left: 3px;
-  font-weight: 300;
+  font-weight: 400;
 }
 .titleLink {
   transition: background-color 0.15s ease;

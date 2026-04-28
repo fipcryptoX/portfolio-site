@@ -7,39 +7,48 @@
   position: static;
   width: 100%;
   height: 2.25rem;
-
   box-sizing: border-box;
   border-radius: 8px;
   margin-top: 2px;
   border: 0.5px solid transparent;
 }
+
 .item:hover {
-  background: var(--highlighthover);
+  background: var(--surface-hover);
 }
+
 .item:active {
-  background: var(--highlighthover);
+  background: var(--surface-hover);
   transform: scaleX(0.985) scaleY(0.985) translateY(0.5px);
 }
+
 .item[aria-current="page"] {
-  background: var(--highlight);
-  border: 0.5px solid var(--highlightActiveBorder);
-  box-shadow: 0px 3px 3px rgba(0, 0, 0, 0.05);
+  background: rgba(85, 157, 161, 0.12);
+  border: 0.5px solid rgba(85, 157, 161, 0.2);
 }
+
 .left {
   display: flex;
   flex-direction: row;
   align-items: center;
 }
+
 .label {
-  font-size: 13.2px;
+  font-size: 13.5px;
   margin: 0px 0px 0px 10px;
-  color: var(--menuLabel);
-  font-weight: 450;
+  color: var(--text-secondary);
+  font-weight: 400;
   letter-spacing: 0.2px;
   transition: color 0.2s ease;
+  font-family: var(--font-serif);
 }
+
+.item[aria-current="page"] .label {
+  color: var(--text-primary);
+}
+
 .shortcut {
-  background: var(--tabbg);
+  background: rgba(85, 157, 161, 0.08);
   border-radius: 3px;
   width: 16px;
   height: 16px;
@@ -48,40 +57,49 @@
   flex-direction: column;
   align-items: center;
 }
+
 .shortcutText {
-  font-weight: 390;
+  font-weight: 400;
   font-size: 11px;
-  color: var(--tabText);
+  color: var(--text-muted);
+  font-family: var(--font-mono);
 }
+
 .logoIcon {
   border-radius: 3.5px;
   width: 16px;
   height: 16px;
   overflow: hidden;
 }
+
 .lucideIcon {
-  color: var(--gray9);
+  color: var(--text-muted);
   opacity: 0.95;
   display: block;
+  transition: color 0.2s ease;
 }
+
+.item[aria-current="page"] .lucideIcon {
+  color: var(--brand);
+}
+
+.item:hover .lucideIcon {
+  color: var(--text-tertiary);
+}
+
 .externalIcon {
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
-    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
-  font-size: 16px;
-  width: 16px;
-  height: 16px;
-  color: var(--tabText);
-  font-weight: 300;
-  display: flex;
-  align-items: center;
+  display: none;
 }
+
 @media (max-width: 700px) {
   .shortcut {
     display: none;
   }
+
   .label {
     display: none;
   }
+
   .item {
     padding: 0.5rem 0.5rem 0.5rem 0.5rem;
     height: 3rem;
@@ -92,9 +110,11 @@
     align-items: center;
     border-radius: 8px;
   }
+
   .desktopOnly {
     display: none;
   }
+
   .logoIcon {
     border-radius: 4px;
     width: 22px;

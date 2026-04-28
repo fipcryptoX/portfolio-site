@@ -34,6 +34,6 @@
 .type {
   margin-top: 0.25rem;
   font-size: var(--font-s);
-  font-weight: 390;
-  color: var(--gray9);
+  font-weight: 400;
+  color: var(--text-muted);
 }

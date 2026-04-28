@@ -47,7 +47,7 @@ export default function Home({ updatesList, writingList, projectsList, vibeList 
     {
       id: "vibeProjects",
       text: "I've gone down the rabbit hole of vibe coding,",
-      ctaText: "here are some of my projects →",
+      ctaText: "here's what I built →",
       ctaLink: "/vibe-coding",
     },
   ];
@@ -132,7 +132,7 @@ export default function Home({ updatesList, writingList, projectsList, vibeList 
         <div className={styles.homeColumn}>
           <h1 className={styles.homeGreetingTitle}>Hey, I&apos;m Gideon</h1>
           <span className={styles.tinyText}>
-            I&apos;m a crypto-native Content Strategist with 4+ years in Web3.
+            I&apos;m a crypto-native Content Strategist with 4+ years in Web3, now exploring how to integrate AI into my workflows to automate my tasks.
             {!isVisible ? (
               <span onClick={resetOnboarding} className={styles.reset}>
                 Need a refresher? Reset onboarding.
@@ -140,7 +140,7 @@ export default function Home({ updatesList, writingList, projectsList, vibeList 
             ) : null}
           </span>
           <p className={styles.mobileBio}>
-            I&apos;m a crypto-native Content Strategist with 4+ years in Web3.
+            I&apos;m a crypto-native Content Strategist with 4+ years in Web3, now exploring how to integrate AI into my workflows to automate my tasks.
           </p>
           <div className={styles.mobileQuickLinks}>
             <Link href="/about">

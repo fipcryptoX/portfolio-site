@@ -29,7 +29,7 @@
     Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
   font-size: 15px;
   margin-left: 3px;
-  font-weight: 300;
+  font-weight: 400;
 }
 .stack {
   display: flex;
@@ -45,8 +45,8 @@
 .content {
   margin-top: 0.25rem;
   font-size: var(--font-m);
-  font-weight: 390;
-  color: var(--gray9);
+  font-weight: 400;
+  color: var(--text-muted);
   overflow: hidden;
   text-overflow: ellipsis;
   display: -webkit-box;
